@@ -1,0 +1,84 @@
+# Publish all joint states -----------------------------------
+human:
+    joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+# Position Controllers ---------------------------------------     
+base_link_to_human_head_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: base_link_to_human_head
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_forearm_to_base_link_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: right_forearm_to_base_link
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_forearm_to_base_link_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_forearm_to_base_link
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_arm_to_forearm_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: base_link_to_human_head
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_arm_to_forearm_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_arm_to_forearm
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_thigh_to_base_link_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: right_thigh_to_base_link
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_thigh_to_base_link_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_thigh_to_base_link
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_leg_to_right_thigh_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: right_leg_to_right_thigh
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_leg_to_left_thigh_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_leg_to_left_thigh
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_leg_to_right_ankle_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: right_leg_to_right_ankle
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_leg_to_left_ankle_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_leg_to_left_ankle
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+right_foot_to_right_ankle_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: right_foot_to_right_ankle
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+left_foot_to_left_ankle_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: left_foot_to_left_ankle
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+hokuyo_joint_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: hokuyo_joint
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+camera_joint_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: camera_joint
+  pid: {p: 10, i: 0.01, d: 0.1}
+
+
+

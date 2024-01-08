@@ -1,0 +1,5 @@
+controller_joints_names: [right_forearm_to_base_linkRoll, right_forearm_to_base_linkPitch, right_forearm_to_base_linkYaw, right_arm_to_forearm, right_hand_to_arm, right_hand_to_arm_yaw, right_hand_to_arm_pitch, right_hand_to_arm_roll, left_forearm_to_base_linkRoll, left_forearm_to_base_linkPitch, left_forearm_to_base_linkYaw, left_arm_to_forearm, left_hand_to_arm, left_hand_to_arm_yaw, left_hand_to_arm_pitch, left_hand_to_arm_roll]
+
+
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+
+<!--URDF-->
+ <param name="robot_description" command="xacro --inorder '$(find human_description)/urdf/human.xacro'" />
+
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+<node name="state_publisher" pkg="human_description" type="state_publisher" />
+
+<!--shown in rviz-->      
+<node name="rviz" pkg="rviz" type="rviz" />
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="use_qui" value="true"/>
+</node>
+
+
+
+<!--gazeboo-->
+
+
+ <arg name="pos_x" default="0.0" />
+ <arg name="pos_y" default="0.0" />
+ <arg name="pos_z" default="0.0" />
+ <arg name="rot_r" default="0.0" />
+ <arg name="rot_p" default="0.0" />
+ <arg name="rot_y" default="0.0" />
+
+
+ <node name="human_spawn" pkg="gazebo_ros" type="spawn_model"  respawn="false"  output="screen"  
+       args="-urdf -param  robot_description -model human
+              -x $(arg pos_x) -y $(arg pos_y) -z $(arg pos_z)
+              -R $(arg rot_r) -P $(arg rot_p) -Y $(arg rot_y)" /> 
+
+ <arg name="world_name" value="worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+
+      
+</launch>

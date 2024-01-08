@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<!-- Load joint controller configurations from YAML file to parameter server -->
+<rosparam file="$(find human_control)/config/human_control.yaml" command="load"/>
+
+<!-- load the controllers -->
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/human" args="joint_state_controller 
+                                        base_link_to_human_head_state_controller
+                                        right_forearm_to_base_link_state_controller
+                                        left_forearm_to_base_link_state_controller
+                                        right_arm_to_forearm_state_controller
+                                        left_arm_to_forearm_state_controller
+                                        right_thigh_to_base_link_state_controller
+                                        left_thigh_to_base_link_state_controller
+                                        right_leg_to_right_thigh_state_controller
+                                        left_leg_to_left_thigh_state_controller
+                                        right_leg_to_right_ankle_state_controller
+                                        left_leg_to_left_ankle_state_controller
+                                        right_foot_to_right_ankle_state_controller
+                                        left_foot_to_left_ankle_state_controller
+                                        hokuyo_joint_state_controller
+                                        camera_joint_state_controller"/>
+
+<node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" respawn="false" output="screen"/>
+           <remap from="/joint_states" to="/human/joint_states"/>                                                     
+</launch>
+
+
+
+
+
+

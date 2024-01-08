@@ -1,0 +1,189 @@
+
+# Publish all joint states -----------------------------------
+human_model:
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 500
+     # Position Controllers ---------------------------------------
+    base_link_to_human_head_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: base_link_to_human_head
+        pid: {p: 300.0, i: 0.0, d: 0.0}
+        setpoint : 0
+    right_thigh_to_base_link_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_thigh_to_base_link
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_thigh_to_base_linkYaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_thigh_to_base_linkYaw
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_thigh_to_base_linkRoll_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_thigh_to_base_linkRoll
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_thigh_to_base_link_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_thigh_to_base_link
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    right_thigh_to_base_linkYaw_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_thigh_to_base_linkYaw
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    right_thigh_to_base_linkRoll_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_thigh_to_base_linkRoll
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    right_leg_to_right_thigh_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_leg_to_right_thigh
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_leg_to_left_thigh_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_leg_to_left_thigh
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    right_leg_to_right_ankle_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_leg_to_right_ankle
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_leg_to_left_ankle_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_leg_to_left_ankle
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    right_foot_to_right_ankle_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: right_foot_to_right_ankle
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_foot_to_left_ankle_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: left_foot_to_left_ankle
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    hokuyo_joint_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: hokuyo_joint
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    camera_joint_position_controller:
+        type: effort_controllers/JointPositionController
+        joint: camera_joint
+        pid: {p: 4000.0, i: 0.0, d: 0.05}
+        setpoint : 0
+    left_arm:
+        type: position_controllers/JointTrajectoryController
+        joints:
+           - left_forearm_to_base_linkRoll
+           - left_forearm_to_base_linkPitch
+           - left_forearm_to_base_linkYaw
+           - left_arm_to_forearm
+           - left_hand_to_arm_yaw
+           - left_hand_to_arm_pitch
+           - left_hand_to_arm_roll
+        constraints:
+            goal_time: 0.6
+            stopped_velocity_tolerance: 0.05
+            left_forearm_to_base_linkRoll: {trajectory: 0.1, goal: 0.1}
+            left_forearm_to_base_linkPitch: {trajectory: 0.1, goal: 0.1}
+            left_forearm_to_base_linkYaw: {trajectory: 0.1, goal: 0.1}
+            left_arm_to_forearm: {trajectory: 0.1, goal: 0.1}
+            left_hand_to_arm_yaw: {trajectory: 0.1, goal: 0.1}
+            left_hand_to_arm_pitch: {trajectory: 0.1, goal: 0.1}
+            left_hand_to_arm_roll: {trajectory: 0.1, goal: 0.1}
+
+        stop_trajectory_duration: 0.5
+        state_publish_rate:  25
+        action_monitor_rate: 10
+
+    right_arm:
+        type: position_controllers/JointTrajectoryController
+        joints:
+           - right_forearm_to_base_linkRoll
+           - right_forearm_to_base_linkPitch
+           - right_forearm_to_base_linkYaw
+           - right_arm_to_forearm
+           - right_hand_to_arm_yaw
+           - right_hand_to_arm_pitch
+           - right_hand_to_arm_roll
+        constraints:
+            goal_time: 0.6
+            stopped_velocity_tolerance: 0.05
+            right_forearm_to_base_linkRoll: {trajectory: 0.1, goal: 0.1}
+            right_forearm_to_base_linkPitch: {trajectory: 0.1, goal: 0.1}
+            right_forearm_to_base_linkYaw: {trajectory: 0.1, goal: 0.1}
+            right_arm_to_forearm: {trajectory: 0.1, goal: 0.1}
+            right_hand_to_arm_yaw: {trajectory: 0.1, goal: 0.1}
+            right_hand_to_arm_pitch: {trajectory: 0.1, goal: 0.1}
+            right_hand_to_arm_roll: {trajectory: 0.1, goal: 0.1}
+        stop_trajectory_duration: 0.5
+        state_publish_rate:  25
+        action_monitor_rate: 10
+
+/gazebo_ros_control:
+    pid_gains:
+        left_forearm_to_base_linkRoll:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        left_forearm_to_base_linkPitch:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        left_forearm_to_base_linkYaw:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        left_arm_to_forearm:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        left_hand_to_arm_yaw:
+            p: 50.0
+            i: 0.0
+            d: 0.0
+        left_hand_to_arm_pitch:
+            p: 50.0
+            i: 0.0
+            d: 0.0
+        left_hand_to_arm_roll:
+            p: 50.0
+            i: 0.0
+            d: 0.0
+        right_forearm_to_base_linkRoll:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        right_forearm_to_base_linkPitch:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        right_forearm_to_base_linkYaw:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        right_arm_to_forearm:
+            p: 300.0
+            i: 0.0
+            d: 0.0
+        right_hand_to_arm_yaw:
+            p: 50.0
+            i: 0.0
+            d: 0.0
+        right_hand_to_arm_pitch:
+            p: 50.0
+            i: 0.0
+            d: 0.0
+        right_hand_to_arm_roll:
+            p: 50.0
+            i: 0.0
+            d: 0.0

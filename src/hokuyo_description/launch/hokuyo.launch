@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+<node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node"  output="screen">
+    <remap from="scan" to="/hokuyo/laser/scan"/>
+    <param name="tf_cache_time_secs" type="double" value="10.0" />
+    <param name="max_scans" type="int" value="400" />
+    <param name="ignore_laser_skew" type="bool" value="true" />
+    <param name="fixed_frame" type="string" value="base_link" />
+</node>
+</launch>
+
