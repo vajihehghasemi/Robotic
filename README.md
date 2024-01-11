@@ -1,0 +1,1 @@
+In this project, a manipulator simulation demonstrates methods for rapid robot control implementation. The work accomplishes grasp and place missions in a virtual world using Gazebo and Robot Operating System (ROS).
